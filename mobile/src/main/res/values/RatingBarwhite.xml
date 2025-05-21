@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="RatingBarWhite" parent="@android:style/Widget.RatingBar">
-        <item name="android:progressTint">@android:color/white</item>
+        <item name="android:progressTint">@android:color/holo_green_dark</item>
         <item name="android:secondaryProgressTint">@android:color/white</item>
         <item name="android:backgroundTint">@android:color/darker_gray</item>
     </style>

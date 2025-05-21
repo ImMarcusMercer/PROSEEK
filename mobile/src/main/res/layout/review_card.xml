@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- Review 1 -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_edittext_2_bg"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/progirl1"
+            android:layout_gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/comment_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/comment_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#333333"
+                android:textSize="11sp" />
+
+            <RatingBar
+                android:id="@+id/comment_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="5"
+                android:isIndicator="true" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="47dp"
+            android:layout_gravity="top"
+            android:src="@drawable/dotsrmvbg" />
+    </LinearLayout>

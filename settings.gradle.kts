@@ -21,6 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "ProSeek Services"
 include(":mobile")
-include(":automotive")
 include(":shared")
  

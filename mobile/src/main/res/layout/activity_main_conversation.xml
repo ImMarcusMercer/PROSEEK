@@ -4,8 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    tools:context=".MainActivityConversation">
+    android:background="#F5F5F5">
 
     <!-- Top Bar -->
     <LinearLayout
@@ -29,11 +28,11 @@
             android:contentDescription="Profile" />
 
         <TextView
-            android:id="@+id/username_top"
+            android:id="@+id/username1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="\@emily_01"
+            android:text=""
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -58,11 +57,11 @@
             android:contentDescription="Profile Big" />
 
         <TextView
-            android:id="@+id/username_big"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="\@emily_01"
+            android:text=""
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#333333" />
@@ -80,65 +79,18 @@
     <ScrollView
         android:id="@+id/conversation_scroll"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/profile_section"
         android:layout_above="@id/message_input_section"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="8dp">
-
-        <LinearLayout
-            android:id="@+id/messages_container"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_conversation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="bottom"
-            android:padding="12dp">
+            android:layout_height="0dp"
+            android:padding="8dp"/>
 
-            <!-- User Message (left) -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="start"
-                android:layout_marginBottom="8dp">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/profileremovebg"
-                    android:layout_gravity="bottom" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/message_leftbg"
-                    android:layout_marginStart="8dp"
-                    android:padding="8dp"
-                    android:text="Hi! I’m interested in learning more about your services. Could you please send me the details and pricing? Thank you!"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- Response Message (right) -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="end"
-                android:layout_marginBottom="8dp"
-                android:layout_gravity="end">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/message_rightbg"
-                    android:padding="8dp"
-                    android:text="Hi! Thanks for reaching out 😊 Here are the details and pricing. Let me know if you have any questions—we’re here to help!"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-        </LinearLayout>
     </ScrollView>
 
     <!-- Message Input Section -->

@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ProSeek Services</string>
+    <string name="save_str">SAVE</string>
+    <string name="name_tag">NAME:</string>
+    <string name="available_for_service">Available for Service</string>
+    <string name="search_str">Search</string>
+    <string name="search_services_tag">Search services...</string>
+    <string name="no_str">NO:</string>
+    <string name="select_your_services_str">Select your services:</string>
+    <string name="tutoring_str">Tutoring</string>
+    <string name="available_for_service_tag">Available for Service!</string>
+    <string name="user_is_unavailable_tag">User is Unavailable</string>
+    <string name="user_avatar">User Avatar</string>
+    <string name="tap_to_rate_and_write_review_str">Tap to rate and write review</string>
+    <string name="send_message_str">Send Message</string>
 </resources>

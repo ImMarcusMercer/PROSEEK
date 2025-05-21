@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/checkboxContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Your Services"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Checkboxes -->
+        <CheckBox android:id="@+id/cbTutoring" android:text="Tutoring" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbChores" android:text="House Chores" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbProject" android:text="Project" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbAssistant" android:text="Assistant" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbHealthcare" android:text="Healthcare" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbFoodDelivery" android:text="Food Delivery" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbPhotography" android:text="Photography" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbRentals" android:text="Rentals" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbMachinery" android:text="Machinery" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+        <CheckBox android:id="@+id/cbTailoring" android:text="Tailoring" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginTop="24dp"/>
+    </LinearLayout>
+</ScrollView>

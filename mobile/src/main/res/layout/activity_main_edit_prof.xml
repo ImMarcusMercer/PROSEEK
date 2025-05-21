@@ -23,26 +23,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/profile_image"
         android:layout_below="@+id/tvProfileHeader"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginLeft="105dp"
-            android:layout_below="@+id/tvProfileHeader"
             android:src="@drawable/profileremovebg">
 
         </ImageView>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/tvProfileHeader"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/pen2rmvbg">
-
-        </ImageView>
 
     </LinearLayout>
 
@@ -65,84 +55,60 @@
 
     <!-- Right: Personal Info -->
     <LinearLayout
-        android:layout_width="186dp"
-        android:layout_height="302dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/Personal"
-        android:layout_marginLeft="115dp"
         android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <!-- USERNAME ROW -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:paddingBottom="4dp">
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:paddingBottom="4dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/bg_blueandwhite"
-                android:padding="2dp"
                 android:text="USERNAME:"
                 android:textColor="#00023E"
                 android:textSize="12sp"
+                android:padding="2dp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#132156"
+                android:text=""
                 android:padding="2dp"
-                android:text="ETHAN CLARK"
                 android:textColor="#FFFFFF"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
 
-
-        <!-- NAME ROW -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal"
-            android:paddingBottom="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_blueandwhite"
-                android:padding="2dp"
-                android:text="NAME:"
-                android:textColor="#00023E"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#132156"
-                android:padding="2dp"
-                android:text="ETHAN CLARK"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-        </LinearLayout>
 
         <!-- PROF ROW -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
             android:paddingBottom="4dp">
 
             <TextView
-                android:layout_width="40dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_blueandwhite"
                 android:padding="2dp"
@@ -152,12 +118,15 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#132156"
                 android:padding="2dp"
-                android:text="0922222222"
+                android:text=""
                 android:textColor="#FFFFFF"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -167,11 +136,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
             android:orientation="horizontal"
             android:paddingBottom="4dp">
 
             <TextView
-                android:layout_width="40dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_blueandwhite"
                 android:padding="2dp"
@@ -181,12 +152,15 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#132156"
                 android:padding="2dp"
-                android:text="MARAHAG"
+                android:text=""
                 android:textColor="#FFFFFF"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -195,12 +169,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginTop="4dp"
             android:orientation="horizontal"
             android:paddingBottom="4dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_blueandwhite"
                 android:padding="2dp"
@@ -210,53 +186,86 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#132156"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:padding="2dp"
-                android:text="ethanclark@gmail.com"
+                android:text=""
                 android:textColor="#FFFFFF"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- PASS ROW -->
-        <LinearLayout
+<!--         SERVICES CHECKBOX SECTION-->
+        <ScrollView
+            android:id="@+id/services_scroll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal"
-            android:paddingBottom="4dp">
+            android:layout_height="200dp"
+            android:layout_below="@+id/location"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_blueandwhite"
-                android:padding="2dp"
-                android:text="PASS:"
-                android:textColor="#00023E"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/services_layout"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#132156"
-                android:padding="2dp"
-                android:text="***********"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select your services:"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="10dp" />
+
+                <CheckBox android:id="@+id/cbTutoring"
+                    android:text="Tutoring"
+                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbChores" android:text="House Chores" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbProject" android:text="Project" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbAssistant" android:text="Assistant" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbHealthcare" android:text="Healthcare" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbFoodDelivery" android:text="Food Delivery" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbPhotography" android:text="Photography" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbRentals" android:text="Rentals" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbMachinery" android:text="Machinery" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+                <CheckBox android:id="@+id/cbTailoring" android:text="Tailoring" android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+            </LinearLayout>
+        </ScrollView>
+
 
         <Button
-            android:id="@+id/cancel"
+            android:id="@+id/save_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/create"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="SAVE"
+            android:text="@string/save_str"
             android:layout_gravity="center"
             android:textColor="@android:color/white"
             android:background="@drawable/login_button_outline"

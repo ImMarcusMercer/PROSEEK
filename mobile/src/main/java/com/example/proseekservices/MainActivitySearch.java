@@ -2,15 +2,32 @@ package com.example.proseekservices;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import android.text.Editable;
+import android.text.TextWatcher;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivitySearch extends AppCompatActivity {
 
@@ -43,103 +60,97 @@ public class MainActivitySearch extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        TextView header = findViewById(R.id.selection_header);
+        header.setText(getIntent().getStringExtra("header"));
 
-        ImageView mess = findViewById(R.id.mess);
-        mess.setOnClickListener(new View.OnClickListener() {
+        RecyclerView recyclerView = findViewById(R.id.userRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        //For recycler view
+        List<User> usersList = new ArrayList<>();
+        UserAdapter adapter = new UserAdapter(this, usersList);
+        recyclerView.setAdapter(adapter);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
+
+        adapter.setOnItemClickListener(user -> {
+            Intent intent = new Intent(MainActivitySearch.this, MainActivityProOp.class);
+            intent.putExtra("userId", user.getUserid());
+            startActivity(intent);
+        });
+        adapter.setOnMessageClickListener(task1->{
+            Intent intent = new Intent(MainActivitySearch.this, MainActivityConversation.class);
+            intent.putExtra("username", task1.getUsername());
+            intent.putExtra("userId", task1.getUserid());
+            startActivity(intent);
+        });
+
+
+        String initialCategory = getIntent().getStringExtra("category");
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        if (initialCategory != null && !initialCategory.isEmpty()) {
+            performSearch(initialCategory, usersList, adapter, currentUserId);
+        }
+        EditText searchbar = findViewById(R.id.search);
+        searchbar.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivitySearch.this, MainActivityConversation.class);
-                startActivity(intent);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String searched = s.toString().trim();
+                if (!searched.isEmpty()) {
+                    String searchedtext = "Results for \"" + searched+"\"";
+                    header.setText(searchedtext);
+                    performSearch(searched, usersList, adapter, currentUserId);
+
+                }
+                else {
+                    header.setText("Search Results");
+                    usersList.clear();
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
 
-        // ======= Add these lines =======
-
-        LinearLayout list = findViewById(R.id.list);
-        LinearLayout list1 = findViewById(R.id.list1);
-        LinearLayout list2 = findViewById(R.id.list2);
-        LinearLayout list3 = findViewById(R.id.list3);
-        LinearLayout list4 = findViewById(R.id.list4);
-        LinearLayout list5 = findViewById(R.id.list5);
-
-        list.setOnClickListener(v -> openProOp("emily_01"));
-        list1.setOnClickListener(v -> openProOp("s.john"));
-        list2.setOnClickListener(v -> openProOp("alexa99"));
-        list3.setOnClickListener(v -> openProOp("ethan01"));
-        list4.setOnClickListener(v -> openProOp("davesmith"));
-        list5.setOnClickListener(v -> openProOp("nancyluz"));
     }
 
-    private void openProOp(String username) {
-        Intent intent = new Intent(MainActivitySearch.this, MainActivityProOp.class);
+    private void performSearch(String category, List<User> usersList, UserAdapter adapter, String currentUserId) {
+        DatabaseReference ref = FirebaseDatabase.getInstance("https://appdev-69420-default-rtdb.firebaseio.com/").getReference("users");
 
-        switch (username) {
-            case "emily_01":
-                intent.putExtra("name", "EMILY SMITH");
-                intent.putExtra("username", "@emily_01");
-                intent.putExtra("email", "emilysmith@gmail.com");
-                intent.putExtra("location", "MARAMAG");
-                intent.putExtra("rating", 5f);
-                intent.putExtra("imageResId", R.drawable.progirl1);
-                break;
+        ref.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                usersList.clear();
 
-            case "s.john":
-                intent.putExtra("name", "SARAH JOHNSON");
-                intent.putExtra("username", "@s.john");
-                intent.putExtra("email", "sarahjohn@gmail.com");
-                intent.putExtra("location", "VALENCIA");
-                intent.putExtra("rating", 4.5f);
-                intent.putExtra("imageResId", R.drawable.progirl2);
-                break;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    User property = ds.getValue(User.class);
 
-            case "alexa99":
-                intent.putExtra("name", "ALEXA RIVERA");
-                intent.putExtra("username", "@alexa99");
-                intent.putExtra("email", "alexariv@gmail.com");
-                intent.putExtra("location", "MANOLO FORTICH");
-                intent.putExtra("rating", 4.0f);
-                intent.putExtra("imageResId", R.drawable.progirl3);
-                break;
+                    if (property != null
+                            && !property.getUserid().equals(currentUserId)
+                            && property.getServices() != null
+                            && property.getServices().contains(category.toLowerCase())
+                            || property.getUsername().toLowerCase().contains(category.toLowerCase())
+                    ) {
 
-            case "ethan01":
-                intent.putExtra("name", "ETHAN WALKER");
-                intent.putExtra("username", "@ethan01");
-                intent.putExtra("email", "ethanwalker@gmail.com");
-                intent.putExtra("location", "DON CARLOS");
-                intent.putExtra("rating", 4.2f);
-                intent.putExtra("imageResId", R.drawable.proboy1);
-                break;
+                        usersList.add(property);
+                    }
+                }
 
-            case "davesmith":
-                intent.putExtra("name", "DAVE SMITH");
-                intent.putExtra("username", "@davesmith");
-                intent.putExtra("email", "dsmith88@gmail.com");
-                intent.putExtra("location", "IMPASUGONG");
-                intent.putExtra("rating", 4.8f);
-                intent.putExtra("imageResId", R.drawable.proboy2);
-                break;
+                adapter.notifyDataSetChanged();
+            }
 
-            case "nancyluz":
-                intent.putExtra("name", "NANCY LUZ");
-                intent.putExtra("username", "@nancyluz");
-                intent.putExtra("email", "nancyluz@gmail.com");
-                intent.putExtra("location", "KIBAWE");
-                intent.putExtra("rating", 4.3f);
-                intent.putExtra("imageResId", R.drawable.progirl4);
-                break;
-
-
-            default:
-                intent.putExtra("name", "Unknown");
-                intent.putExtra("username", "@unknown");
-                intent.putExtra("email", "unknown@example.com");
-                intent.putExtra("location", "Unknown");
-                intent.putExtra("rating", 0f);
-                intent.putExtra("imageResId", R.drawable.profileremovebg);
-                break;
-        }
-
-        startActivity(intent);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 
 }

@@ -46,16 +46,18 @@
             android:gravity="center_vertical">
 
             <EditText
+                android:hint="@string/search_services_tag"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
                 android:id="@+id/searchbar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_edittext_2_bg"
                 android:drawablePadding="20dp"
-                android:hint="search"
                 android:padding="4dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
@@ -96,8 +98,8 @@
 
         <LinearLayout
             android:id="@+id/service_section"
-            android:layout_width="370dp"
-            android:layout_height="340dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/frequently_searched"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"

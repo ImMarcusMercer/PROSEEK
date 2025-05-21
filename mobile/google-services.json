@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "465398362475",
-    "project_id": "proseek-b9b97",
-    "storage_bucket": "proseek-b9b97.firebasestorage.app"
+    "project_number": "335724167621",
+    "firebase_url": "https://appdev-69420-default-rtdb.firebaseio.com",
+    "project_id": "appdev-69420",
+    "storage_bucket": "appdev-69420.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:465398362475:android:d447e7f7e04751fbfd1c2e",
+        "mobilesdk_app_id": "1:335724167621:android:aa46c4135880b47945cbac",
         "android_client_info": {
           "package_name": "com.example.proseekservices"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBw6_6GE5ayxVb8sJGGQmCr2BX_Siy1TwY"
+          "current_key": "AIzaSyC5h3ThXh8aBoiELqyCAfpgFxG9gjqPXTQ"
         }
       ],
       "services": {

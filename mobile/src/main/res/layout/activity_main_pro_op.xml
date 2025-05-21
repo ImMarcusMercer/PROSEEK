@@ -17,7 +17,7 @@
         <!-- Profile Section -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="257dp"
+            android:layout_height="288dp"
             android:layout_marginTop="25dp"
             android:gravity="top"
             android:orientation="horizontal"
@@ -26,7 +26,7 @@
             <!-- Left: Profile + Username + Rating -->
             <LinearLayout
                 android:layout_width="165dp"
-                android:layout_height="174dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="center_horizontal"
@@ -39,22 +39,15 @@
                     android:src="@drawable/progirl1" />
 
                 <TextView
-                    android:id="@+id/username"
+                    android:id="@+id/username1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:text="\@emily_01"
+                    android:paddingTop="2dp"
+                    android:text=""
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/service_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SERVICE PROVIDER"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12sp" />
 
                 <RatingBar
                     android:id="@+id/profile_rating"
@@ -70,13 +63,37 @@
                     android:stepSize="1"
                     android:theme="@style/RatingBarWhite" />
 
+                <!-- Message -->
+                <LinearLayout
+                    android:id="@+id/messageUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="19dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/messwhite" />
+
+                    <TextView
+                        android:id="@+id/edit_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Message"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
 
             </LinearLayout>
 
             <!-- Right: Personal Info -->
             <LinearLayout
                 android:layout_width="186dp"
-                android:layout_height="302dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -99,6 +116,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/other_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#132156"
@@ -122,17 +140,18 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_blueandwhite"
                         android:padding="2dp"
-                        android:text="PROF:"
+                        android:text="NO:"
                         android:textColor="#00023E"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/other_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#132156"
                         android:padding="2dp"
-                        android:text="PROFESSIONAL"
+                        android:text="092342356"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -157,6 +176,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/other_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#132156"
@@ -186,6 +206,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/other_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#132156"
@@ -199,90 +220,37 @@
                 <!-- Quick Link Buttons -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="102dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:orientation="vertical">
 
-                    <!-- Message -->
-                    <LinearLayout
-                        android:id="@+id/mess"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingBottom="8dp">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:layout_marginEnd="8dp"
-                            android:src="@drawable/messwhite" />
-
-                        <TextView
-                            android:id="@+id/edit_profile"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Message"
-                            android:textColor="#FFFFFF"
-                            android:textSize="12sp" />
-                    </LinearLayout>
 
                     <!-- Availability -->
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:id="@+id/availability_color"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingBottom="8dp">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:layout_marginEnd="8dp"
-                            android:src="@drawable/history3rmvbg" />
-
-                        <TextView
-                            android:id="@+id/transaction_history"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Available for Service"
-                            android:textColor="#FFFFFF"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-
-                    <!-- Book Now -->
-                    <LinearLayout
-                        android:id="@+id/loggingout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
+                        android:padding="10dp"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:layout_marginEnd="8dp"
-                            android:src="@drawable/bookk_rembg" />
 
                         <TextView
-                            android:id="@+id/logout"
-                            android:layout_width="57dp"
+                            android:id="@+id/status"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Book Now"
+                            android:gravity="center_horizontal"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12sp" />
                     </LinearLayout>
-
                 </LinearLayout>
 
             </LinearLayout>
+
         </LinearLayout>
 
         <!-- Ratings & Reviews -->
-
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -294,346 +262,76 @@
             android:paddingTop="16dp"
             android:paddingBottom="8dp" />
 
-        <!-- Multiple Reviews -->
+
+
+        <!-- Create Reviews -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext_2_bg"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp">
-
-            <EditText
+            android:orientation="vertical"
+            android:padding="10dp">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tap to rate and write review"
-                android:textStyle="bold"
-                android:textColor="#00023E">
-            </EditText>
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-        </LinearLayout>
-        <!-- Review 1 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext_2_bg"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp">
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:numStars="5"
+                    android:stepSize="1"
+                    android:rating="0"
+                    android:isIndicator="false"
+                    />
+                <ImageButton
+                    android:id="@+id/send_review_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:contentDescription="@string/send_message_str"
+                    android:src="@android:drawable/ic_menu_send" />
+            </LinearLayout>
 
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/progirl1"
-                android:layout_gravity="center_vertical" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/user_review_input_text"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="\@franky_05"
+                    android:hint="@string/tap_to_rate_and_write_review_str"
                     android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="#00023E">
+                </EditText>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Super responsive and reliable service!"
-                    android:textColor="#333333"
-                    android:textSize="11sp" />
-
-                <RatingBar
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="5"
-                    android:isIndicator="true" />
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="49dp"
-                android:layout_height="47dp"
-                android:layout_gravity="top"
-                android:src="@drawable/dotsrmvbg" />
-        </LinearLayout>
 
-        <!-- Review 2 -->
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext_2_bg"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp">
-
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/progirl2"
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center_vertical" />
-
-            <LinearLayout
-                android:layout_width="0dp"
+            android:orientation="vertical">
+            <!-- Reviews Section -->
+            <ScrollView
+                android:id="@+id/conversation_scroll"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_reviews"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="\@alexa99"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Good on-time job, needs more precision."
-                    android:textColor="#333333"
-                    android:textSize="11sp" />
-
-                <RatingBar
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="3"
-                    android:isIndicator="true" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="49dp"
-                android:layout_height="47dp"
-                android:layout_gravity="top"
-                android:src="@drawable/dotsrmvbg" />
+            </ScrollView>
         </LinearLayout>
 
-        <!-- Review 3 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext_2_bg"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp">
-
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/proboy3"
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center_vertical" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="\@davesmith"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wouldn't hire again, not up to my standards."
-                    android:textColor="#333333"
-                    android:textSize="11sp" />
-
-                <RatingBar
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="2"
-                    android:isIndicator="true" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="49dp"
-                android:layout_height="47dp"
-                android:layout_gravity="top"
-                android:src="@drawable/dotsrmvbg" />
-        </LinearLayout>
-
-        <!-- Review 4 -->
-
-        <!-- Review 5 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/rounded_edittext_2_bg"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/progirl4" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="\@nancyluz"
-                    android:textColor="#000000"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Really impressed with the quality of service!"
-                    android:textColor="#333333"
-                    android:textSize="11sp" />
-
-                <RatingBar
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:rating="4" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="49dp"
-                android:layout_height="47dp"
-                android:layout_gravity="top"
-                android:src="@drawable/dotsrmvbg" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext_2_bg"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp">
-
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/proboy2"
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center_vertical" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="\@s_john"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Prompt response made the whole process go"
-                    android:textColor="#333333"
-                    android:textSize="11sp" />
-
-                <RatingBar
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="4"
-                    android:isIndicator="true" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="49dp"
-                android:layout_height="47dp"
-                android:layout_gravity="top"
-                android:src="@drawable/dotsrmvbg" />
-        </LinearLayout>
-
-        <!-- Review 6 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext_2_bg"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/proboy3"
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center_vertical" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="\@s_johnny"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Prompt response made the whole process go"
-                    android:textColor="#333333"
-                    android:textSize="11sp" />
-
-                <RatingBar
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    android:rating="4"
-                    android:isIndicator="true" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="49dp"
-                android:layout_height="47dp"
-                android:layout_gravity="top"
-                android:src="@drawable/dotsrmvbg" />
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>
