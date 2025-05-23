@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
+import android.text.InputType;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Handler;
@@ -39,12 +41,32 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        etPwd = findViewById(R.id.password);
+//        EditText password = findViewById(R.id.password);
+        ImageButton togglePassword = findViewById(R.id.togglePassword);
+
+        togglePassword.setOnClickListener(new View.OnClickListener() {
+            boolean isPasswordVisible = false;
+
+            @Override
+            public void onClick(View v) {
+                if (isPasswordVisible) {
+                    etPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    togglePassword.setImageResource(R.drawable.ic_visibility_off);
+                } else {
+                    etPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    togglePassword.setImageResource(R.drawable.ic_visibility);
+                }
+                etPwd.setSelection(etPwd.length()); // Move cursor to end
+                isPasswordVisible = !isPasswordVisible;
+            }
+        });
+
         Button loginbtn, createacc;
 
         mAuth = FirebaseAuth.getInstance();
 
         etEmail = findViewById(R.id.email);
-        etPwd = findViewById(R.id.password);
         loginbtn = findViewById(R.id.loginbtn);
         createacc = findViewById(R.id.createacc);
         loginbtn.setOnClickListener( task-> {

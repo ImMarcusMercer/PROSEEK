@@ -4,26 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -80,8 +74,6 @@ public class MainActivityCreateAcc extends AppCompatActivity {
                 if (cbMachinery.isChecked()) selectedServices.add("machinery");
                 if (cbTailoring.isChecked()) selectedServices.add("tailoring");
 
-// Then maybe save to Firebase or pass to another activity
-
                 registerUser();
             }
         });
@@ -89,15 +81,21 @@ public class MainActivityCreateAcc extends AppCompatActivity {
 
 
     }
+    public static String formatToExampleString(String input) {
+        if (input == null || input.trim().isEmpty()) return "";
+
+        input = input.trim().toLowerCase();
+        return Character.toUpperCase(input.charAt(0)) + input.substring(1);
+    }
 
     private void registerUser()
     {
-        String username = etUsername.getText().toString().trim();
+        String username = formatToExampleString(etUsername.getText().toString().trim());
         String email = etEmail.getText().toString().trim();
         String password = etPwd.getText().toString().trim();
         String confirmPassword = etRepwd.getText().toString().trim();
         String number=etPhone.getText().toString().trim();
-        String location=etLocation.getText().toString().trim();;
+        String location=formatToExampleString(etLocation.getText().toString().trim());
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || number.isEmpty() || location.isEmpty()) {
             Toast.makeText(this, "All fields are required.", Toast.LENGTH_SHORT).show();
@@ -136,7 +134,7 @@ public class MainActivityCreateAcc extends AppCompatActivity {
                                         if (dbTask.isSuccessful()) {
                                             saveUserToPreferences(mAuth.getCurrentUser());
                                             Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(this, MainActivityHomeScr.class));
+                                            startActivity(new Intent(this, MainActivity.class));
                                         } else {
                                             Toast.makeText(this, "Failed to save user data.", Toast.LENGTH_LONG).show();
                                         }

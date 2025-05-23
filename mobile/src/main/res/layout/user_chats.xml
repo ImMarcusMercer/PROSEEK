@@ -47,10 +47,5 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="Options"
-                android:src="@drawable/dotsrmvbg" />
         </LinearLayout>
     </LinearLayout>

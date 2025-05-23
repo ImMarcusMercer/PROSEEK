@@ -81,7 +81,7 @@
                 android:padding="2dp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
